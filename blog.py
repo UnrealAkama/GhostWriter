@@ -2,13 +2,23 @@ from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('templates/'))
 
 
-def gen_index(self):
+def gen_index():
 	 
 	template = env.get_template('index.html')
 
-	output_from_parsed_template = template.render(foo='Hello World!')
+	output = template.render(foo='Hello World!')
 
-	with open('index.html', 'w') as f:
+	with open('output\index.html', 'w') as f:
 		f.write(output)
 
+def gen_content():
+
+    template = env.get_template('content.html')
+
+    output = template.render()
+
+    with open('output\content.html', 'w') as f:
+        f.write(output)
+
 gen_index()
+gen_content()
