@@ -2,24 +2,42 @@
 <html>
 	<head>
 		{% block head %}
-		<title>{% block title %}Have laptop, Will travel.{% endblock %}</title>
+		<title>{% block title %}Have Laptop, Will Travel.{% endblock %}</title>
 		<!-- Add a favcon icon-->
-		<!-- Add stylesheets -->
+        <link rel="stylesheet" type="text/css" media="all" href="static/960.css">
+        <link rel="stylesheet" type="text/css" media="all" href="static/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
 		{% endblock %}
 	</head>
 	<body>
-		<div id="topbar">
-		{% block topbar %}
-		{% endblock %}
-		</div>
-		
-		<div id="Contents"> 
-		{% block contents %}
-		{% endblock %}
-		</div>
 
-		<div id="Footer">
-		{% block footer %}
-		{% endblock %}
+        <div class="container_12">
+
+            <div class="grid_12 maintitle">
+                <a href="index.html" class="nav-link">Have Laptop, Will Travel.</a>
+            </div>
+
+            <div class="grid_12 subtitle">
+                Just another blog on the internet.
+            </div>
+
+            <div class="grid_3 suffix_1 sidebar">
+                This is totally a side bar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam nisi, egestas non pellentesque id, condimentum ut turpis. Maecenas scelerisque ullamcorper elit, nec iaculis orci gravida quis. Quisque mi lectus, sagittis a tincidunt gravida, iaculis ac libero. Vestibulum ac libero vel magna adipiscing commodo a in nunc. Phasellus scelerisque nulla sit amet purus pulvinar ultrices. Nunc nec sapien id eros sagittis aliquam eu eget nisi. Mauris tristique metus ac felis tincidunt pretium. Donec interdum aliquam ante eu sagittis. Aliquam eu adipiscing nunc. Aliquam accumsan tincidunt tristique. Maecenas ut dui leo. Nullam in eros tincidunt felis consequat molestie. Suspendisse vel euismod nisl. Morbi sem erat, interdum non blandit et, consequat eget dui. Suspendisse et porttitor nisi. Integer metus felis, eleifend in sollicitudin ut, pretium id mi.
+            </div>
+
+            <div class="grid_8 ">
+                {% block contents %}
+                Curabitur luctus iaculis magna accumsan lobortis. Suspendisse fringilla iaculis nunc, vitae vehicula magna pellentesque id. Quisque tempor aliquet est, ac porta tortor porttitor id. Phasellus eleifend est id libero tempor pulvinar. Vivamus ut sem tellus, eu facilisis nisi. Maecenas orci arcu, viverra ac malesuada vel, fringilla nec odio. Donec id quam leo, vel fermentum felis.
+
+                Suspendisse ac erat tellus, a hendrerit nisl. Etiam pretium velit magna, quis feugiat nisl. Quisque magna elit, ultricies id varius eu, tristique vel justo. Morbi ut eros at est adipiscing molestie eget ut ante. Nulla sit amet imperdiet turpis. Nam ullamcorper ullamcorper velit malesuada placerat. Sed bibendum facilisis leo eget eleifend. Curabitur ultricies felis sed sapien lobortis nec pretium nibh ultrices. In ante lorem, imperdiet et auctor non, tempor ac leo. Quisque luctus lectus vitae massa lacinia fringilla. Fusce dapibus, metus quis sagittis vehicula, elit nunc dignissim felis, sed ultricies eros sem ut augue. Integer mollis commodo elit et facilisis. Nunc ornare quam in sem rutrum in fermentum massa faucibus. Aenean at interdum purus. Fusce et sapien neque, congue laoreet orci. In hac habitasse platea dictumst.
+
+                Donec placerat pretium convallis. Cras lacinia volutpat venenatis. Sed a diam odio. Nunc ligula magna, lacinia nec congue vehicula, dictum vitae arcu. Vestibulum non arcu ac velit consectetur tristique at id nibh. Mauris id libero felis, vitae sollicitudin neque. Praesent volutpat rutrum nibh id semper. Ut vel lacus enim, sit amet tincidunt risus. Donec suscipit aliquam consequat. Quisque id dui sed nibh ullamcorper porta.
+
+                Mauris ac metus at metus fringilla accumsan in ac libero. Sed hendrerit fermentum arcu, eu mollis diam consequat at. Aliquam viverra felis a lacus suscipit sodales. Sed tempor, magna nec dapibus porttitor, ante nulla egestas libero, eu vehicula libero mauris at libero. Aliquam interdum nisl ut purus rutrum at ultrices dui accumsan. Nulla urna neque, lacinia et posuere sed, congue vitae leo. Pellentesque in arcu ac purus consequat aliquam. Donec sit amet leo purus, at molestie sem. In hac habitasse platea dictumst. Aliquam vitae felis vitae erat pellentesque dictum ut nec nisi. Sed vitae vulputate urna. Sed nisi nisi, posuere at eleifend id, lacinia vitae nisi. Cras viverra eros non urna egestas malesuada porta orci lacinia. Aenean interdum, est quis facilisis scelerisque, libero dui tincidunt quam, sed malesuada tellus massa et nisl. Sed quis lorem et risus varius dapibus quis in turpis. Nulla tristique diam blandit mi blandit hendrerit.
+                {% endblock %}
+            </div>
+
+        </div>
+
 	</body>
 </html>

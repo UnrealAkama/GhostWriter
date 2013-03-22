@@ -1,24 +1,72 @@
 from jinja2 import Environment, FileSystemLoader
-env = Environment(loader=FileSystemLoader('templates/'))
+from glob import glob
+from markdown import markdown
+import shutil
 
 
-def gen_index():
-	 
-	template = env.get_template('index.html')
+class GhostWriter(object):
 
-	output = template.render(foo='Hello World!')
+    def __init__(self):
+        self.env = Environment(loader=FileSystemLoader('templates/'))
 
-	with open('output\index.html', 'w') as f:
-		f.write(output)
+        # Removes static content and re copies it
+        shutil.rmtree('output/static')
+        shutil.copytree('content/static/','output/static/')
 
-def gen_content():
+        # Create empty entries
+        self.entries = []
 
-    template = env.get_template('content.html')
+        # Run functions
+        self.load_all()
 
-    output = template.render()
+        self.gen_content()
 
-    with open('output\content.html', 'w') as f:
-        f.write(output)
+        self.gen_index()
 
-gen_index()
-gen_content()
+    # Loads all entries from 'content/entries'
+    def load_all(self):
+        filenames = glob('content/entries/*')
+        for file in filenames:
+            raw = open(file, 'r').read()
+            title = None
+            date = None
+            tags = []
+            while True:
+                if not raw or raw[0] != '#':
+                    break
+                line, raw = raw.split('\n', 1)
+                item, rest = line[1:].split(' ', 1)
+                if item == 'title':
+                    title = rest
+                if item == 'date':
+                    date = rest
+                if item == 'tags':
+                    tags = rest.split(' ')
+
+            self.entries.append(dict(
+                title = title,
+                date = date,
+                tags = tags,
+                raw = raw,
+                html = markdown(raw)
+            ))
+
+
+    # Output all entries to 'output/posts'
+    def gen_content(self):
+        template = self.env.get_template('content.html')
+
+        output = template.render(self.entries[0])
+
+        with open('output\content.html', 'w') as f:
+            f.write(output)
+
+    def gen_index(self):
+        template = self.env.get_template('index.html')
+
+        output = template.render()
+
+        with open('output\index.html', 'w') as f:
+            f.write(output)
+
+blog = GhostWriter()

@@ -1,0 +1,36 @@
+/*
+    CSS for GhostWriter blog software and template by Akama
+*/
+
+a.nav-link
+{
+    color: black;
+    text-decoration: none;
+}
+
+h1
+{
+    font-size: 1.5em;
+    display: inline;
+}
+
+body {
+    background: url('images/pw_maze_white.png');
+    font-family: 'Open Sans', sans-serif;
+}
+
+.maintitle {
+    font-size: 2.5em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    text-align: right;
+    padding-bottom: 2em;
+}
+
+.sidebar {
+    font-size: 14px;
+}
+
