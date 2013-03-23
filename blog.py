@@ -1,8 +1,8 @@
 from jinja2 import Environment, FileSystemLoader
 from glob import glob
 from markdown import markdown
+from datetime import datetime
 import shutil
-
 
 class GhostWriter(object):
 
@@ -14,7 +14,7 @@ class GhostWriter(object):
         shutil.copytree('content/static/','output/static/')
 
         # Create empty entries
-        self.entries = []
+        self.entries = list()
 
         # Run functions
         self.load_all()
@@ -23,6 +23,8 @@ class GhostWriter(object):
 
         self.gen_index()
 
+        print(self.entries)
+
     # Loads all entries from 'content/entries'
     def load_all(self):
         filenames = glob('content/entries/*')
@@ -30,7 +32,7 @@ class GhostWriter(object):
             raw = open(file, 'r').read()
             title = None
             date = None
-            tags = []
+            tags = list()
             while True:
                 if not raw or raw[0] != '#':
                     break
@@ -44,6 +46,7 @@ class GhostWriter(object):
                     tags = rest.split(' ')
 
             self.entries.append(dict(
+                link = date + "-" + title.replace(' ','-').lower() + '.html',
                 title = title,
                 date = date,
                 tags = tags,
@@ -51,6 +54,7 @@ class GhostWriter(object):
                 html = markdown(raw)
             ))
 
+        self.entries.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
 
     # Output all entries to 'output/posts'
     def gen_content(self):
