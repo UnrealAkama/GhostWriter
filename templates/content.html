@@ -1,5 +1,10 @@
 {% extends "_base.html" %}
 
 {% block contents %}
-    {{ html }}
+    <div class="contentHeader">
+        <a href="{{ entry['link'] }}"> {{ entry['title'] }}</a>
+        <span style="float: right"> {{ entry['date'] }}</span>
+    </div>
+    <!--} <span> {{ entry['date'] }}</span></a>-->
+    <span style="padding-top: 3em">{{ entry['html'] }}</span>
 {% endblock %}

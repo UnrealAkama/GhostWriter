@@ -60,15 +60,16 @@ class GhostWriter(object):
     def gen_content(self):
         template = self.env.get_template('content.html')
 
-        output = template.render(self.entries[0])
+        for entry in self.entries:
+            output = template.render(entry=entry)
 
-        with open('output\content.html', 'w') as f:
-            f.write(output)
+            with open('output\\' + entry['link'], 'w') as f:
+                f.write(output)
 
     def gen_index(self):
         template = self.env.get_template('index.html')
 
-        output = template.render()
+        output = template.render(entries=self.entries)
 
         with open('output\index.html', 'w') as f:
             f.write(output)

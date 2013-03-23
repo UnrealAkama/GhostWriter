@@ -34,3 +34,14 @@ body {
     font-size: 14px;
 }
 
+.contentHeader {
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.indexContent {
+    border-bottom: 1px solid black;
+    padding-top: 0.5em;
+    padding-bottom: 2em;
+}
+

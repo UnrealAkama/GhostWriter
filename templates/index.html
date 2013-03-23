@@ -1,1 +1,15 @@
 {% extends "_base.html" %}
+
+{% block contents %}
+
+{% for entry in entries %}
+        <div class="indexContent">
+            <a class="subtitle" href="{{ entry['link'] }}"> {{ entry['title'] }}</a>
+            <br />
+            <br />
+            {{ entry['html'] }}
+        </div>
+{% endfor %}
+
+
+{% endblock %}
