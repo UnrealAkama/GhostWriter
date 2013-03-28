@@ -11,7 +11,6 @@ a.nav-link
 h1
 {
     font-size: 1.5em;
-    display: inline;
 }
 
 body {
@@ -19,29 +18,38 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.maintitle {
-    font-size: 2.5em;
-    font-family: 'Open Sans', sans-serif;
+.mainHeader{
+    font-size: 35px;
 }
 
-.subtitle {
+.subheader {
     font-size: 1.5em;
     text-align: right;
-    padding-bottom: 2em;
-}
-
-.sidebar {
-    font-size: 14px;
-}
-
-.contentHeader {
     padding-bottom: 1em;
     border-bottom: 1px solid black;
 }
 
-.indexContent {
-    border-bottom: 1px solid black;
-    padding-top: 0.5em;
-    padding-bottom: 2em;
+.navLink  {
+    font-size: 20px;
+    padding-top: 16px;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
+.nav-border {
+    border-bottom: black 1px solid;
+}
+
+.sidebar {
+    padding-top: 16px;
+}
+
+.indexContent {
+    padding-top: 16px;
+}
+
+.contentPost {
+    padding-bottom: 8px;
+    border-bottom: solid 1px black;
+}

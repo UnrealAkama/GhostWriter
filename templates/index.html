@@ -4,10 +4,11 @@
 
 {% for entry in entries %}
         <div class="indexContent">
-            <a class="subtitle" href="{{ entry['link'] }}"> {{ entry['title'] }}</a>
-            <br />
-            <br />
-            {{ entry['html'] }}
+            <div class=contentPost>
+                <a href=" {{ entry['link'] }} "> {{ entry['title'] }} </a>
+                <span style="float: right"> {{ entry['date'] }} </span>
+                <span style="padding-top: 3em"> {{ entry['html'] }} </span>
+            </div>
         </div>
 {% endfor %}
 
