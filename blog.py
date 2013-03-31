@@ -7,13 +7,12 @@ import os
 
 
 class GhostWriter(object):
-
     def __init__(self):
         self.env = Environment(loader=FileSystemLoader('templates/'))
 
         # Removes static content and re copies it
-        shutil.rmtree(os.path.join('output','static'))
-        shutil.copytree(os.path.join('content','static'),os.path.join('output','static'))
+        shutil.rmtree(os.path.join('output', 'static'))
+        shutil.copytree(os.path.join('content', 'static'), os.path.join('output', 'static'))
 
         # Create empty entries
         self.entries = list()
@@ -23,15 +22,15 @@ class GhostWriter(object):
 
         self.gen_content()
 
-        self.gen_pages('index.html','index.html')
+        self.gen_pages('index.html', 'index.html')
 
-        self.gen_pages('feed.xml','feed.xml')
+        self.gen_pages('feed.xml', 'feed.xml   ')
 
         print(self.entries)
 
     # Loads all entries from 'content/entries'
     def load_all(self):
-        filenames = glob(os.path.join('content','entries','*'))
+        filenames = glob(os.path.join('content', 'entries', '*'))
         for file in filenames:
             raw = open(file, 'r').read()
             title = None
@@ -50,18 +49,17 @@ class GhostWriter(object):
                     tags = rest.split(' ')
 
             self.entries.append(dict(
-                link = date + "-" + title.replace(' ','-').lower() + '.html',
-                title = title,
-                date = date,
-                tags = tags,
-                raw = raw,
-                html = markdown(raw)
+                link=date + "-" + title.replace(' ', '-').lower() + '.html',
+                title=title,
+                date=date,
+                tags=tags,
+                raw=raw,
+                html=markdown(raw)
             ))
 
-        filenames = glob(os.path.join('content','projects','*'))
+        filenames = glob(os.path.join('content', 'projects', '*'))
         for file in filenames:
             raw = open(file, 'r').read()
-
 
         self.entries.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
 
@@ -72,7 +70,7 @@ class GhostWriter(object):
         for entry in self.entries:
             output = template.render(entry=entry)
 
-            with open(os.path.join('output',entry['link']), 'w') as f:
+            with open(os.path.join('output', entry['link']), 'w') as f:
                 f.write(output)
 
     def gen_pages(self, templateName, outputName):
@@ -80,7 +78,8 @@ class GhostWriter(object):
 
         output = template.render(entries=self.entries)
 
-        with open(os.path.join('output',outputName), 'w') as f:
+        with open(os.path.join('output', outputName), 'w') as f:
             f.write(output)
+
 
 blog = GhostWriter()

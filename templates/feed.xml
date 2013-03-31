@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     <title>Have Laptop, Will Travel.</title>
@@ -7,10 +8,12 @@
     <author>
         <name>Akama</name>
     </author>
+    <updated>{{entries[0]['date']}}</updated>
     {% for entry in entries %}
     <entry>
         <title>{{entry['title']}}</title>
         <id>http://nexadmin.com/{{entry['link']}}</id>
+        <updated>{{entry['date']}}</updated>
         <link href="http://nexadmin.com/{{entry['link']}}"/>
         <content type="html"> {{entry['html']}} </content>
     </entry>
