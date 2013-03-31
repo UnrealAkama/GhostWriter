@@ -3,6 +3,8 @@ from glob import glob
 from markdown import markdown
 from datetime import datetime
 import shutil
+import os
+
 
 class GhostWriter(object):
 
@@ -10,8 +12,8 @@ class GhostWriter(object):
         self.env = Environment(loader=FileSystemLoader('templates/'))
 
         # Removes static content and re copies it
-        shutil.rmtree('output/static')
-        shutil.copytree('content/static/','output/static/')
+        shutil.rmtree(os.path.join('output','static'))
+        shutil.copytree(os.path.join('content','static'),os.path.join('output','static'))
 
         # Create empty entries
         self.entries = list()
@@ -27,7 +29,7 @@ class GhostWriter(object):
 
     # Loads all entries from 'content/entries'
     def load_all(self):
-        filenames = glob('content/entries/*')
+        filenames = glob(os.path.join('content','entries','*'))
         for file in filenames:
             raw = open(file, 'r').read()
             title = None
@@ -63,7 +65,7 @@ class GhostWriter(object):
         for entry in self.entries:
             output = template.render(entry=entry)
 
-            with open('output\\' + entry['link'], 'w') as f:
+            with open(os.path.join('output',entry['link']), 'w') as f:
                 f.write(output)
 
     def gen_index(self):
@@ -71,7 +73,7 @@ class GhostWriter(object):
 
         output = template.render(entries=self.entries)
 
-        with open('output\index.html', 'w') as f:
+        with open(os.path.join('output','index.html'), 'w') as f:
             f.write(output)
 
 blog = GhostWriter()
