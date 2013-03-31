@@ -23,7 +23,9 @@ class GhostWriter(object):
 
         self.gen_content()
 
-        self.gen_index()
+        self.gen_pages('index.html','index.html')
+
+        self.gen_pages('feed.xml','feed.xml')
 
         print(self.entries)
 
@@ -56,6 +58,11 @@ class GhostWriter(object):
                 html = markdown(raw)
             ))
 
+        filenames = glob(os.path.join('content','projects','*'))
+        for file in filenames:
+            raw = open(file, 'r').read()
+
+
         self.entries.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
 
     # Output all entries to 'output/posts'
@@ -68,12 +75,12 @@ class GhostWriter(object):
             with open(os.path.join('output',entry['link']), 'w') as f:
                 f.write(output)
 
-    def gen_index(self):
-        template = self.env.get_template('index.html')
+    def gen_pages(self, templateName, outputName):
+        template = self.env.get_template(templateName)
 
         output = template.render(entries=self.entries)
 
-        with open(os.path.join('output','index.html'), 'w') as f:
+        with open(os.path.join('output',outputName), 'w') as f:
             f.write(output)
 
 blog = GhostWriter()
