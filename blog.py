@@ -4,11 +4,12 @@ from markdown import markdown
 from datetime import datetime
 import shutil
 import os
-
+import cgi
 
 class GhostWriter(object):
     def __init__(self):
         self.env = Environment(loader=FileSystemLoader('templates/'))
+        self.env.globals['cgi'] = cgi
 
         # Removes static content and re copies it
         shutil.rmtree(os.path.join('output', 'static'))
@@ -24,7 +25,7 @@ class GhostWriter(object):
 
         self.gen_pages('index.html', 'index.html')
 
-        self.gen_pages('feed.xml', 'feed.xml   ')
+        self.gen_pages('feed.xml', 'feed.xml')
 
         print(self.entries)
 
