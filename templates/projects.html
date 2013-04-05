@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+
+{% block bigContents %}
+<div class="grid_12">
+    {% for entry in content %}
+    <span style="padding-top: 3em"> {{ entry['html'] }} </span>
+    {% endfor %}
+</div>
+{% endblock %}

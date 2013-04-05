@@ -8,8 +8,8 @@
     <author>
         <name>Akama</name>
     </author>
-    <updated>{{entries[0]['date']}}T00:00:00Z</updated>
-    {% for entry in entries %}
+    <updated>{{content[0]['date']}}T00:00:00Z</updated>
+    {% for entry in content %}
     <entry>
         <title>{{entry['title']}}</title>
         <id>http://nexadmin.com/{{entry['link']}}</id>

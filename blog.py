@@ -12,26 +12,25 @@ class GhostWriter(object):
         self.env.globals['cgi'] = cgi
 
         # Removes static content and re copies it
-        shutil.rmtree(os.path.join('output', 'static'))
+        shutil.rmtree(os.path.join('output'))
         shutil.copytree(os.path.join('content', 'static'), os.path.join('output', 'static'))
 
         # Create empty entries
         self.entries = list()
+        self.projects = list()
 
         # Run functions
-        self.load_all()
+        self.load(self.entries, 'entries')
+        self.load(self.projects, 'projects')
 
-        self.gen_content()
-
-        self.gen_pages('index.html', 'index.html')
-
-        self.gen_pages('feed.xml', 'feed.xml')
-
-        print(self.entries)
+        self.gen_page('content.html','')
+        self.gen_pages('index.html', 'index.html', self.entries)
+        self.gen_pages('feed.xml', 'feed.xml', self.entries)
+        self.gen_pages('projects.html', 'projects.html', self.projects)
 
     # Loads all entries from 'content/entries'
-    def load_all(self):
-        filenames = glob(os.path.join('content', 'entries', '*'))
+    def load(self, stored, location):
+        filenames = glob(os.path.join('content', location, '*'))
         for file in filenames:
             raw = open(file, 'r').read()
             title = None
@@ -49,7 +48,7 @@ class GhostWriter(object):
                 if item == 'tags':
                     tags = rest.split(' ')
 
-            self.entries.append(dict(
+            stored.append(dict(
                 link=date + "-" + title.replace(' ', '-').lower() + '.html',
                 title=title,
                 date=date,
@@ -58,26 +57,22 @@ class GhostWriter(object):
                 html=markdown(raw)
             ))
 
-        filenames = glob(os.path.join('content', 'projects', '*'))
-        for file in filenames:
-            raw = open(file, 'r').read()
-
-        self.entries.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
+        stored.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
 
     # Output all entries to 'output/posts'
-    def gen_content(self):
-        template = self.env.get_template('content.html')
+    def gen_page(self, templateName, outputName):
+        template = self.env.get_template(templateName)
 
         for entry in self.entries:
             output = template.render(entry=entry)
 
-            with open(os.path.join('output', entry['link']), 'w') as f:
+            with open(os.path.join('output', outputName, entry['link']), 'w') as f:
                 f.write(output)
 
-    def gen_pages(self, templateName, outputName):
+    def gen_pages(self, templateName, outputName, items):
         template = self.env.get_template(templateName)
 
-        output = template.render(entries=self.entries)
+        output = template.render(content=items)
 
         with open(os.path.join('output', outputName), 'w') as f:
             f.write(output)
