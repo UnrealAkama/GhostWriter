@@ -2,39 +2,65 @@
     CSS for GhostWriter blog software and template by Akama
 */
 
-a.nav-link
-{
-    color: black;
-    text-decoration: none;
-}
-
-h1
-{
-    font-size: 1.5em;
-}
-
-body {
-    /* background: url('images/pw_maze_white.png'); */
-    font-family: 'Open Sans', sans-serif;
-}
-
 img {
     max-width: 100%;
 }
 
-.mainHeader{
-    font-size: 35px;
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+code {
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace;
+}
+
+.HEADLINE {
+    font-family: "Lucida Grande", Tahoma;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: normal;
+    color: #222;
+}
+
+.SUBHEADLINE {
+    font-family: "Lucida Grande", Tahoma;
+    font-size: 18px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+}
+
+.BODYTEXT {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+
 }
 
 .subheader {
-    font-size: 1.5em;
     text-align: right;
     padding-bottom: 1em;
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
 }
 
-.navLink  {
-    font-size: 20px;
+.navLink {
+    font-size: 14px;
     padding-top: 16px;
     text-align: center;
     padding-top: 8px;
@@ -42,7 +68,7 @@ img {
 }
 
 .nav-border {
-    border-bottom: black 3px solid;
+    border-bottom: black 1px solid;
 }
 
 .sidebar {
@@ -55,5 +81,5 @@ img {
 
 .contentPost {
     padding-bottom: 8px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 1px black;
 }

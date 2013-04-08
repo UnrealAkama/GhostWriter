@@ -1,36 +1,44 @@
 <!doctype html>
 <html>
-	<head>
-		{% block head %}
-		<title>{% block title %}Have Laptop, Will Travel.{% endblock %}</title>
-		<!-- Add a favcon icon-->
-        <link rel="stylesheet" type="text/css" media="all" href="static/960.css">
-        <link rel="stylesheet" type="text/css" media="all" href="static/style.css">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
-		{% endblock %}
-	</head>
-	<body>
-        <div class="container_12">
-            <div class="grid_12 mainHeader">
-                <a href="index.html"> Have Laptop, Will Travel. </a>
-            </div>
-            <div class="grid_12 subheader">
-                Just another blog on the internet
-            </div>
-            <div class="grid_4 navLink"><a href="index.html"> Blog </a></div>
-            <div class="grid_4 navLink"><a href="projects.html"> Projects </a></div>
-            <div class="grid_4 navLink"><a href="feed.xml"> RSS Feed </a></div>
-            <div class="grid_12 nav-border"></div>
-            {% block bigContents %}
-            <div class="grid_3 suffix_1 sidebar">
-                This is totally a side bar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam nisi, egestas non pellentesque id, condimentum ut turpis. Maecenas scelerisque ullamcorper elit, nec iaculis orci gravida quis. Quisque mi lectus, sagittis a tincidunt gravida, iaculis ac libero. Vestibulum ac libero vel magna adipiscing commodo a in nunc. Phasellus scelerisque nulla sit amet purus pulvinar ultrices. Nunc nec sapien id eros sagittis aliquam eu eget nisi. Mauris tristique metus ac felis tincidunt pretium. Donec interdum aliquam ante eu sagittis. Aliquam eu adipiscing nunc. Aliquam accumsan tincidunt tristique. Maecenas ut dui leo. Nullam in eros tincidunt felis consequat molestie. Suspendisse vel euismod nisl. Morbi sem erat, interdum non blandit et, consequat eget dui. Suspendisse et porttitor nisi. Integer metus felis, eleifend in sollicitudin ut, pretium id mi.
-            </div>
-            <div class="grid_8 indexContent">
-                {% block contents %}
-                {% endblock %}
-            </div>
-            {% endblock %}
-        </div>
+<head>
+    {% block head %}
+    <title>{% block title %}Have Laptop, Will Travel.{% endblock %}</title>
+    <!-- Add a favcon icon-->
+    <link rel="stylesheet" type="text/css" media="all" href="static/960.css">
+    <link rel="stylesheet" type="text/css" media="all" href="static/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+    {% endblock %}
+</head>
+<body>
+<div class="container_12">
+    <div class="grid_12 mainHeader">
+        <a href="index.html" class="HEADLINE"> AvidHacker </a>
+    </div>
+    <div class="grid_12 subheader SUBHEADLINE">
+        Have Laptop, Will Travel.
+    </div>
+    <div class="grid_4 navLink SUBHEADLINE"><a href="index.html"> Blog </a></div>
+    <div class="grid_4 navLink SUBHEADLINE"><a href="projects.html"> Projects </a></div>
+    <div class="grid_4 navLink SUBHEADLINE"><a href="feed.xml"> RSS Feed </a></div>
+    <div class="grid_12 nav-border"></div>
+    {% block bigContents %}
+    <div class="grid_3 suffix_1 sidebar BODYTEXT">
+        This is totally a side bar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam nisi, egestas
+        non pellentesque id, condimentum ut turpis. Maecenas scelerisque ullamcorper elit, nec iaculis orci gravida
+        quis. Quisque mi lectus, sagittis a tincidunt gravida, iaculis ac libero. Vestibulum ac libero vel magna
+        adipiscing commodo a in nunc. Phasellus scelerisque nulla sit amet purus pulvinar ultrices. Nunc nec sapien id
+        eros sagittis aliquam eu eget nisi. Mauris tristique metus ac felis tincidunt pretium. Donec interdum aliquam
+        ante eu sagittis. Aliquam eu adipiscing nunc. Aliquam accumsan tincidunt tristique. Maecenas ut dui leo. Nullam
+        in eros tincidunt felis consequat molestie. Suspendisse vel euismod nisl. Morbi sem erat, interdum non blandit
+        et, consequat eget dui. Suspendisse et porttitor nisi. Integer metus felis, eleifend in sollicitudin ut, pretium
+        id mi.
+    </div>
+    <div class="grid_8 indexContent">
+        {% block contents %}
+        {% endblock %}
+    </div>
+    {% endblock %}
+</div>
 
-	</body>
+</body>
 </html>

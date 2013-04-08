@@ -3,13 +3,13 @@
 {% block contents %}
 
 {% for entry in content %}
-        <div class="indexContent">
-            <div class=contentPost>
-                <a href=" {{ entry['link'] }} "> {{ entry['title'] }} </a>
-                <span style="float: right"> {{ entry['date'] }} </span>
-                <span style="padding-top: 3em"> {{ entry['html'] }} </span>
-            </div>
-        </div>
+<div class="indexContent">
+    <div class="BODYTEXT contentPost">
+        <a class="SUBHEADLINE" href=" {{ entry['link'] }} "> {{ entry['title'] }} </a>
+        <span style="float: right"> {{ entry['date'] }} </span>
+        <span style="padding-top: 3em"> {{ entry['html'] }} </span>
+    </div>
+</div>
 {% endfor %}
 
 

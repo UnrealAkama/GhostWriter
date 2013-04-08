@@ -3,7 +3,7 @@
 {% block bigContents %}
 <div class="grid_12">
     {% for entry in content %}
-    <span style="padding-top: 3em"> {{ entry['html'] }} </span>
+    <div class="contentPost"> {{ entry['html'] }}</div>
     {% endfor %}
 </div>
 {% endblock %}

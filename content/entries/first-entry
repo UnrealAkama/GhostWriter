@@ -1,0 +1,19 @@
+#title The first entry.
+#date 2013-04-08
+#tags python blog
+
+Introducing my blog, a place where I write about random stuff that amuses me,  my hope is to make it an interesting and funny source of information about topics that I enjoy. Some topics that will be covering are network security, computer science, and any other weekend projects that I work on.  The first thing I will be covering/showing of is the software that runs the blog itself, GhostWriter, listed below. The first version is obviously working as otherwise you wouldn't be reading this, the next features, I use that word loosely,  will be a tagging feature and cleaning up the css/html code. If you have any questions about the code or using it you can always contact me. Also feel free to contact me and offer suggestions about improvements to my code.
+
+To wax on a little bit about why I think a static blog was better in this case is because I wanted to run it on a cheap vps. I currently have a box from [Hostigation][host] that costs $30 for a year, 128mb of ram, 10gb of disk space, and 500gb of transfer. I personally think this is a great deal, and although WordPress might run on it, using just [nginx] as a server and serving static html is much simpler and less resource intensive.
+
+Just as a note, another great use of this offer is to setup an IRC bouncer, using software like [ZNC] so that you can always stay connected.
+
+### Introducing GhostWriter
+
+GhostWriter is a static python website generator. It uses [jinja2][1] for templating and uses [Markdown][2] to generate the content. The concept was born out of Show HN post that exhibited software much like this one. There is nothing special or amazing about this software, it's just something I wanted to write for myself, to better understand HTML and CSS.
+
+[1]: http://jinja.pocoo.org/
+[2]: http://daringfireball.net/projects/markdown/
+[host]: https://hostigation.com/
+[nginx]: http://nginx.org/
+[ZNC]: http://wiki.znc.in/ZNC
