@@ -23,12 +23,19 @@ class GhostWriter(object):
         self.load(self.entries, 'entries')
         self.load(self.projects, 'projects')
 
-        self.gen_page('content.html','')
+        self.gen_page('content.html','',self.entries)
         self.gen_pages('index.html', 'index.html', self.entries)
         self.gen_pages('feed.xml', 'feed.xml', self.entries)
         self.gen_pages('projects.html', 'projects.html', self.projects)
 
-    # Loads all entries from 'content/entries'
+    '''
+        Loads all entries from a folder, and stores them in the argument 'stored'. 
+        Uses markdown to translate the plain text to html, the metadate is taken from the first lines.
+        Explain metadata is 
+            #title This is an example title
+            #date 2013-04-08
+            #tags demo sample
+    '''
     def load(self, stored, location):
         filenames = glob(os.path.join('content', location, '*'))
         for file in filenames:
@@ -59,16 +66,22 @@ class GhostWriter(object):
 
         stored.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
 
-    # Output all entries to 'output/posts'
-    def gen_page(self, templateName, outputName):
+    '''
+        Generates a single page or number of single pages. The data for the pages is based in via the content paramater.
+        If you want to generate just one page, pass the content argument as a list with only one element inside of it. 
+    '''
+    def gen_page(self, templateName, outputName, content):
         template = self.env.get_template(templateName)
 
-        for entry in self.entries:
+        for entry in content:
             output = template.render(entry=entry)
 
             with open(os.path.join('output', outputName, entry['link']), 'w') as f:
                 f.write(output)
 
+    '''
+        Generates a single page that may have a number of elements or contents in it. Be sure that items is a list. 
+    '''
     def gen_pages(self, templateName, outputName, items):
         template = self.env.get_template(templateName)
 
@@ -77,5 +90,5 @@ class GhostWriter(object):
         with open(os.path.join('output', outputName), 'w') as f:
             f.write(output)
 
-
-blog = GhostWriter()
+if __name__=='__main__':
+    GhostWriter()
