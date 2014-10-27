@@ -6,26 +6,27 @@ import shutil
 import os
 import cgi
 
+
 class GhostWriter(object):
     def __init__(self):
         self.env = Environment(loader=FileSystemLoader('templates/'))
         self.env.globals['cgi'] = cgi
 
-	# Creates the output folder
+        # Creates the output folder
         if not os.path.exists('output'):
             os.makedirs('output')
 
-
         # Removes static content and re copies it
         shutil.rmtree(os.path.join('output'))
-        shutil.copytree(os.path.join('content', 'static'), os.path.join('output', 'static'))
+        shutil.copytree(os.path.join('content', 'static'),
+                        os.path.join('output', 'static'))
 
         # Create empty entries
         self.entries = list()
         self.projects = list()
 
         # Run functions
-       	self.load(self.entries, 'entries')
+        self.load(self.entries, 'entries')
         self.load(self.projects, 'projects')
 
         self.gen_page('content.html','',self.entries)
