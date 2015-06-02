@@ -29,15 +29,15 @@ class GhostWriter(object):
         self.load(self.entries, 'entries')
         self.load(self.projects, 'projects')
 
-        self.gen_page('content.html','',self.entries)
+        self.gen_page('content.html', '', self.entries)
         self.gen_pages('index.html', 'index.html', self.entries)
         self.gen_pages('feed.xml', 'feed.xml', self.entries)
         self.gen_pages('projects.html', 'projects.html', self.projects)
 
     '''
-        Loads all entries from a folder, and stores them in the argument 'stored'. 
+        Loads all entries from a folder, and stores them in the argument 'stored'.
         Uses markdown to translate the plain text to html, the metadate is taken from the first lines.
-        Explain metadata is 
+        Explain metadata is
             #title This is an example title
             #date 2013-04-08
             #tags demo sample
@@ -48,6 +48,7 @@ class GhostWriter(object):
             raw = open(file, 'r').read()
             title = None
             date = None
+            image = None
             tags = list()
             while True:
                 if not raw or raw[0] != '#':
@@ -58,23 +59,30 @@ class GhostWriter(object):
                     title = rest
                 if item == 'date':
                     date = rest
+                if item == 'image':
+                    image = rest
                 if item == 'tags':
                     tags = rest.split(' ')
 
             stored.append(dict(
                 link=date + "-" + title.replace(' ', '-').lower() + '.html',
                 title=title,
-                date=date,
+                date=datetime.strptime(date, '%Y-%m-%d'),
                 tags=tags,
                 raw=raw,
                 html=markdown(raw)
             ))
 
-        stored.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
+        # stored.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
+        stored.sort(key=lambda x: x['date'], reverse=True)
+
+        # for entry in stored:
+            # formated_data = datetime.strptime(entry['date'], '%Y-%m-%d')
+            # entry['date'] = formated_data.strftime("%B %d, %Y")
 
     '''
         Generates a single page or number of single pages. The data for the pages is based in via the content paramater.
-        If you want to generate just one page, pass the content argument as a list with only one element inside of it. 
+        If you want to generate just one page, pass the content argument as a list with only one element inside of it.
     '''
     def gen_page(self, templateName, outputName, content):
         template = self.env.get_template(templateName)
@@ -86,7 +94,7 @@ class GhostWriter(object):
                 f.write(output)
 
     '''
-        Generates a single page that may have a number of elements or contents in it. Be sure that items is a list. 
+        Generates a single page that may have a number of elements or contents in it. Be sure that items is a list.
     '''
     def gen_pages(self, templateName, outputName, items):
         template = self.env.get_template(templateName)

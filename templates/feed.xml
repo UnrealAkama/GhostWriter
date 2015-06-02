@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     <title>Have Laptop, Will Travel.</title>
-    <id>http://nexadmin.com/</id>
-    <link href="http://www.nexadmin.com"/>
+    <id>http://avidhacker.com/</id>
+    <link href="http://www.avidhacker.com"/>
     <author>
-        <name>Akama</name>
+        <name>AvidHacker</name>
     </author>
     <updated>{{content[0]['date']}}T00:00:00Z</updated>
     {% for entry in content %}
     <entry>
         <title>{{entry['title']}}</title>
-        <id>http://nexadmin.com/{{entry['link']}}</id>
+        <id>http://avidhacker.com/{{entry['link']}}</id>
         <updated>{{entry['date']}}T00:00:00Z</updated>
-        <link href="http://nexadmin.com/{{entry['link']}}"/>
+        <link href="http://avidhacker.com/{{entry['link']}}"/>
         <content type="html"> {{cgi.escape(entry['html'])}} </content>
     </entry>
     {%endfor%}

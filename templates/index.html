@@ -6,7 +6,7 @@
 <div class="indexContent">
     <div class="BODYTEXT contentPost">
         <a class="SUBHEADLINE" href=" {{ entry['link'] }} "> {{ entry['title'] }} </a>
-        <span style="float: right"> {{ entry['date'] }} </span>
+        <span style="float: right"> {{ entry['date'].strftime("%B %d, %Y") }} </span>
         <span style="padding-top: 3em"> {{ entry['html'] }} </span>
     </div>
 </div>

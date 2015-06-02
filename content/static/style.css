@@ -7,21 +7,10 @@ img {
 }
 
 a {
-    color: #2aa198;
+    color: #2980b9;
     text-decoration: none;
 }
 
-h1 {
-    font-size: 18px;
-}
-
-h2 {
-    font-size: 16px;
-}
-
-h3 {
-    font-size: 14px;
-}
 
 code {
     font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace;
@@ -29,42 +18,55 @@ code {
 
 .HEADLINE {
     font-family: "Lucida Grande", Tahoma;
-    font-size: 40px;
+    font-size: 34px;
     margin-top: 5px;
     margin-bottom: 0px;
-    text-align: center;
+    text-align: left;
+    padding-left: 50px;
+    padding-bottom: 10px;
     font-weight: normal;
-    color: #222;
+    color: white;
+}
+
+.subheadline {
+    font-family: "Lucida Grande", Tahoma;
+    font-size: 23px;
+    font-weight: lighter;
+    font-variant: normal;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    color: white;
 }
 
 .SUBHEADLINE {
     font-family: "Lucida Grande", Tahoma;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: lighter;
     font-variant: normal;
+    padding-bottom: 40px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: bold;
 }
+
 
 .BODYTEXT {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 20px;
 
 }
 
 .subheader {
     text-align: right;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
     border-bottom: 1px solid black;
 }
 
 .navLink {
-    font-size: 14px;
+    color: white;
+    font-size: 24px;
     padding-top: 16px;
     text-align: center;
     padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 15px;
 }
 
 .nav-border {
@@ -77,9 +79,14 @@ code {
 
 .indexContent {
     padding-top: 16px;
+    text-align: justify;
 }
 
 .contentPost {
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     border-bottom: solid 1px black;
+}
+
+.header {
+    background-color: #3498db;
 }

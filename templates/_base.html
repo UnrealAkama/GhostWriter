@@ -1,44 +1,64 @@
 <!doctype html>
-<html>
+
+<html lang="en">
 <head>
-    {% block head %}
-    <title>{% block title %}AvidHacker - Have Laptop, Will Travel.{% endblock %}</title>
-    <!-- Add a favcon icon-->
-    <link rel="stylesheet" type="text/css" media="all" href="static/960.css">
-    <link rel="stylesheet" type="text/css" media="all" href="static/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
-    {% endblock %}
+	<meta charset="utf-8">
+	{% block head %}
+
+	<title>{% block title %}AvidHacker - Have Laptop, Will Travel.{% endblock %}</title>
+	<!-- Add a favcon icon-->
+	<link rel="stylesheet" type="text/css" media="all" href="static/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="static/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+	{% endblock %}
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
+
 <body>
-<div class="container_12">
-    <div class="grid_12 mainHeader">
-        <a href="index.html" class="HEADLINE"> AvidHacker </a>
-    </div>
-    <div class="grid_12 subheader SUBHEADLINE">
-        Have Laptop, Will Travel.
-    </div>
-    <div class="grid_4 navLink SUBHEADLINE"><a href="index.html"> Blog </a></div>
-    <div class="grid_4 navLink SUBHEADLINE"><a href="projects.html"> Projects </a></div>
-    <div class="grid_4 navLink SUBHEADLINE"><a href="feed.xml"> RSS Feed </a></div>
-    <div class="grid_12 nav-border"></div>
-    {% block bigContents %}
-    <div class="grid_3 suffix_1 sidebar BODYTEXT">
-        About Me.
-        <br>
-        <br>
-        I am a college student from the midwest. I'm working at a major in computer science, although some days it feels like I will never get there. My primary interests are computer science, network security, video games, and other random weekend projects. <br> <br>
+	<div class="container-fluid header">
+		<div class="container">
+			<div class="row clearfix header">
+				<div class="col-md-12 column HEADLINE">
+					Adam Ringwood
+				</div>
+			</div>
+			<div class="row clearfix header">
+				<div class="col-md-12 column subheadline">
+					Computer Programmer &amp; Ethical Hacker
+				</div>
+			</div>
+			<div class="row clearfix header">
+				<div class="col-md-3 column navLink">
+					<a href="index.html" class="navLink"> Blog </a>
+				</div>
+				<div class="col-md-3 column navLink">
+					<a href="aboutme.html" class="navLink"> About Me </a>
+				</div>
+				<div class="col-md-3 column navLink">
+					<a href="projects.html" class="navLink"> Projects </a>
+				</div>
+				<div class="col-md-3 column navLink">
+					<a href="feed.xml" class="navLink" > RSS </a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        How to contact me: <br>
-        adam@nexadmin.com <br>
+	<div class="container">
+		{% block bigContents %}
+		<div class="row clearfix">
+		   <div class="col-md-12 column">
+		       {% block contents %}
+		       {% endblock %}
+		   </div>
+		</div>
+		   {% endblock %}
+	</div>
 
-        or avidhacker on freenode
-    </div>
-    <div class="grid_8 indexContent">
-        {% block contents %}
-        {% endblock %}
-    </div>
-    {% endblock %}
-</div>
-
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="static/bootstrap.min.js"></script>
 </body>
 </html>
