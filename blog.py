@@ -70,6 +70,7 @@ class GhostWriter(object):
                 date=datetime.strptime(date, '%Y-%m-%d'),
                 tags=tags,
                 raw=raw,
+                image=image,
                 html=markdown(raw)
             ))
 

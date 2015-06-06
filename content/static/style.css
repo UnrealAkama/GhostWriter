@@ -90,3 +90,18 @@ code {
 .header {
     background-color: #3498db;
 }
+
+.projectPhoto {
+    padding-top: 20px;
+    vertical-align: middle;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.project {
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+}

@@ -1,9 +1,16 @@
 {% extends "_base.html" %}
 
 {% block bigContents %}
-<div class="BODYTEXT">
-    {% for entry in content %}
-    <div class="contentPost"> {{ entry['html'] }}</div>
-    {% endfor %}
+<div class="container">
+  {% for entry in content %}
+  <div class="row clearfix project vertical-align">
+    <div class="col-md-3 column">
+      <img class="projectPhoto" src="{{ entry['image'] }}">
+    </div>
+    <div class="col-md-9 column BODYTEXT">
+      {{ entry['html'] }}
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
