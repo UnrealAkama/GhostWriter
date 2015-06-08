@@ -24,15 +24,18 @@ class GhostWriter(object):
         # Create empty entries
         self.entries = list()
         self.projects = list()
+        self.aboutme = list()
 
         # Run functions
         self.load(self.entries, 'entries')
         self.load(self.projects, 'projects')
+        self.load(self.aboutme, 'aboutme')
 
         self.gen_page('content.html', '', self.entries)
         self.gen_pages('index.html', 'index.html', self.entries)
         self.gen_pages('feed.xml', 'feed.xml', self.entries)
         self.gen_pages('projects.html', 'projects.html', self.projects)
+        self.gen_pages('aboutme.html', 'aboutme.html', self.aboutme)
 
     '''
         Loads all entries from a folder, and stores them in the argument 'stored'.
