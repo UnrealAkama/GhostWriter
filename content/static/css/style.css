@@ -105,3 +105,12 @@ code {
     padding-bottom: 15px;
     border-bottom: 1px solid black;
 }
+
+.socialmedia {
+    padding-top: 15px;
+}
+
+.socialphoto {
+    max-width: 2.5em;
+    padding-right: 1em;
+}
