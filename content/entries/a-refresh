@@ -1,0 +1,7 @@
+#title A Refresh
+#date 2015-06-09
+#tags python blog
+
+This blog has been updated and some of the code behind it has been updated as well. It should work better on mobile and be readable on every browser. It is a static website that is generated with a python script that I wrote. The main purpose behind writing rather than using something like jekyll is to understand html and css better.
+
+The goal is to put my CTF writeups and other useful information I learn here so the updates may not be regular as some other blogs.
